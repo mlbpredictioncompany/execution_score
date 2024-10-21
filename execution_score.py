@@ -4,16 +4,10 @@ import numpy as np
 ######
 
 # READ DATA
-transitions = pd.read_csv('uninformed_transitions.csv').set_index('game_state')
+transitions = pd.read_csv('uninformed_transitions.csv')
 win_probability = pd.read_csv('uninformed_win_probability.csv')
 print(transitions)
 print(win_probability)
-
-
-# MELT TRANSITIONS
-transitions = pd.melt(transitions, ignore_index=False, var_name='next_state', value_name='probability')
-transitions = transitions.loc[transitions['probability'] > 0].reset_index()
-print(transitions)
 
 
 # PARSE FIELDS
